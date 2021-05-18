@@ -1,0 +1,93 @@
+\documentclass[14pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+\title{Resumen y guia para resolver ejercicios de Analisis Matematico}
+\date{Ultima modificacion: \today}
+
+\begin{document}
+\maketitle
+
+\centerline{\textbf{Funciones y modelos}}\*
+\underline{Transformaciones de funciones}\\*
+Desplazamientos:\\*
+\begin{itemize}
+        \item $y = f(x) + c$, desplazamiento de $f(x)$ c unidades hacia arriba.
+        \item $y = f(x - c)$, desplazamiento de $f(x)$ c unidades hacia la derecha.
+\end{itemize}
+Alargamientos y reflexiones:\\*
+Suponiendo que $c > 1$\\*
+\begin{itemize}
+        \item $y = c f(x)$, alargamiento de $y = f(x)$ verticalmente.
+        \item $y = (1/c)f(x)$, compresion de $y=f(x)$ verticalmente.
+        \item $y = f(cx)$, compresion de $y=f(x)$ horizontalmente.
+        \item $y = f(x/c)$, alargamiento de $y=f(x)$ horizontalmente.
+        \item $y = -f(x)$, reflexion respecto del eje x.
+        \item $y = f(-x)$, reflexion respecto del eje y.
+\end{itemize}
+
+\underline{Conceptos:}\\*
+\begin{itemize}
+        \item \underline{Funcion par}: $f(x) = f(-x)$
+        \item \underline{Funcion impar}: $f(-x) = -f(x)$
+        \item \underline{Supremo}: La menor de todas las cotas superiores de una funcion (acotada).
+        \item \underline{Infimo}: La mayor de todas las cotas inferiores de una funcion.
+        \item Si el supremo pertence a la funcion se denomina maximo absoluto y si el 
+                infimo pertenece a la funcion es el minimo absoluto.
+        \item \underline{Funcion inyectiva}: Funcion que posee un unico valor de $x$ para cada valor de $y$\\*
+                Es decir, $x_1 \neq x_2 \Rightarrow f(x_1) \neq f(x_2)$
+        \item \underline{Funcion sobreyectiva}: Funcion en la que todo elemento del codominio es imagen de
+                algun elemento del dominio.\\*
+                Es decir, $f:A \rightarrow B$ sobreyectiva $\iff \forall y \in B, \exists x \in
+                A / y = f(x)$
+        \item \underline{Funcion biyectiva}: Funcion inyectiva y sobreyectiva.
+\end{itemize}
+\underline{Propiedades de funciones pares e impares}\\*
+\begin{itemize}
+        \item La suma o diferencia de dos funciones pares es otra funcion par.
+        \item La suma o diferencia de dos funciones impares es otra funcion impar.
+        \item El producto o cociente entre una funcion par y una impar es una funcion impar.
+        \item El producto o cociente entre dos funciones pares o entre dos funciones impares es una
+                funcion par.
+\end{itemize}
+
+\underline{Funcion periodica}\\*
+$f(x)$ es periodica $\iff \exists p > 0 / f(x \pm p), \forall x \in D_f$ p es el periodo de $f(x)$.
+
+\underline{Funcion inversa}\\*
+Para que una funcion admita inversa, esta debe ser biyectiva.\\*
+Para toda $f(x):A \rightarrow B$ que admita inversa:\\*
+\begin{itemize}
+        \item $f^{-1}(x)=y \iff f(y) = x$
+        \item $f^{-1}(f(x))=x, \forall x \in A$
+        \item $f(f^{-1}(x)) = x, \forall x \in B$
+\end{itemize}
+
+\textit{Para obtener la inversa de una funcion primero se debe verificar que sea biyectiva, si
+no lo es se puede restringir su dominio para alcanzar la condicion. Luego se resuelve la ecuacion
+expresando x en terminos de y. Si se requiere expresar a la inversa en funcion de x, se intercambia
+y por x.}
+\clearpage
+
+\centerline{\textbf{Limites y continuidad}}
+\underline{Entorno}\\*
+Sean a, h reales, se llama entorno de centro en a y radio h al intervalo abierto $(a-h;a+h) = E(a,h)$.\\*
+Es decir, $E(a,h) = {x/a-h<x<a+h}$.\\*
+Si se excluye del entorno su centro a, este se denomina entorno reducido.\\*
+
+\underline{Propiedades, condiciones y leyes de los limites}\\*
+\begin{itemize}
+        \item \(\lim_{x \to a}f(x)=L \iff \lim_{x \to a^-}f(x)=L \and \lim_{x \to a^+}f(x)=L\)
+        \item Si \(f(x)=g(x)\) cuando \(x \neq a\), entonces \(\lim_{x \to a}f(x)=\lim_{x \to a}g(x)\)\\
+                si el limite existe.
+\end{itemize}
+
+
+\centerline{\textbf{Asintotas}}
+\underline{Verticales}\\*
+Una recta \(x=a\) es la asintota vertical de \(f(x)\) si se cumple al menos un enunciado:\\*
+\[\begin{array}{ccc}
+        \lim_{x \to a}f(x)=\infty &\qquad \lim_{x \to a^-}f(x)=\infty &\qquad \lim_{x \to a^+}f(x)=\infty\\
+        \lim_{x \to a}f(x)=-\infty &\qquad \lim_{x \to a^-}f(x)=-\infty &\qquad \lim_{x \to a^+}f(x)=-\infty
+\end{array}\]
+\end{document}
+

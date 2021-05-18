@@ -1,0 +1,150 @@
+\documentclass[14pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+
+\title{Sintaxis y semantica de los lenguajes}
+\date{Ultima modificacion: \today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Simbolo}
+Es una entidad indivisible. Pueden estar formados por varias letras.\\
+
+\textbf{Alfabeto}
+Conjunto de simbolos finito y no vacio. Se designa con $\Sigma$ o una 
+letra mayuscula y un subindice $A_1$\\
+
+\textbf{Cadenas de caracteres}
+Con los simbolos de un alfabeto se pueden formar secuencias, tambien 
+llamadas cadenas o palabras. Una cadena es una secuencia finita de simbolos
+de un determinado alfabeto.\\
+Una cadena puede ser vacia, es decir no contener ningun simbolo. Por lo 
+tanto pertenece a todos los alfabetos. Se designa con $\epsilon$.\\
+
+\textbf{Longitud de una cadena}
+Numero de simbolos de una cadena. Se designa de la siguiente forma $|w|$.\\
+
+\textbf{Concatencion de cadenas}
+Sean x e y dos cadenas, xy es su concatenacion.\\
+Si $x=a_1a_2...a_i$ y $y=b_1b_2...b_j$ entonces 
+$xy=a_1a_2...a_ib_1b_2...b_j$
+\begin{itemize}
+    \item Es una operacion binaria definida sobre el conjunto universo del alfabeto
+    \item El conjunto universo es cerrado bajo la concatenacion
+    \item Es asociativa
+    \item Elemento identidad = Cadena vacia ($\epsilon$)
+    \item No conmutativa
+    \item $\forall$ w,v del mismo universo $|wv| = |w|+|v|$
+    \item Concatenacion de k copias de $w: w^k = ww...w \} k$ veces
+\end{itemize}
+
+\textbf{Potencia de un alfabeto} 
+Es el conjunto de cadenas de longitud k tales que todos los simbolos que las forman 
+pertenecen al alfabeto.
+\begin{itemize}
+    \item Potencia 0 $= \epsilon $,
+    \item Potencia n $= |\Sigma|^n$
+\end{itemize}
+
+\textbf{Universo}
+Conjunto de todas las palabras que se pueden definir sobre un alfabeto
+Es la union de las infinitas potencias del alfabeto.\\
+
+\underline{Nota:} Cadena vacia ($\epsilon$) $\neq$ Conjunto formado por una cadena 
+vacia (\{$\epsilon$\}) $\neq$ Conjunto vacio ($\emptyset$).\\
+
+\textbf{Lenguaje formal}
+Conjunto finito o infinito de cadenas de longitud finita, generadas a partir
+de un conjunto finito de simbolos llamado alfabeto.\\
+
+\begin{itemize}
+    \item Al ser conjuntos se pueden aplicar operaciones de conjuntos.
+    \item Sea $\Sigma$ un alfabeto y L un subconjunto del universo $\Sigma^*$, entonces L es un
+lenguaje de $\Sigma$ .
+    \item Se puede definir a un lenguaje de la siguiente forma:
+$L = \{a^n b^n , para\: n>1 \}$
+    \item El lenguaje vacio esta incluido en todos los alfabetos
+    \item El lenguaje formado por $\epsilon$ esta incluido en todos los alfabetos
+    \item \textbf{Concatenacion} $L_1L_2 = \{\omega / \omega = \alpha \beta , \alpha \in L_1,
+\beta \in L_2 \}$
+
+\end{itemize}
+
+\textbf{Potencia de un lenguaje}\\
+$L^n = \{\epsilon\}, si\: n = 0;\\
+     = L.L^{n-1}, si\: n>0$\\
+
+\textbf{Clausura de Kleene}\\
+Union de todas las potencias de un lenguaje.\\
+$L^* = \bigcup_{i=0} ^ \infty L^i = L^0 \cup L^1 \cup L^i \cup ... \cup L^ \infty$\\
+
+\textbf{Tipos de Gramaticas}\\
+Una gramatica se define como $G = {N, T, S, P}$\\
+donde N es el conjunto de simbolos no terminales, 
+T el de los terminales, $S \in N$ el simbolo inicial (el mas general),
+y P son las reglas de asignacion para formar palabras de la forma
+$\phi A \rho \longrightarrow \phi \omega \rho$ donde $\phi, \rho$ son el contexto.
+\begin{itemize}
+        \item Tipo 0: Libres de restriccion.
+        \item Tipo 1: Dependientes del contexto, $\omega \in (N \cup T)^+$ (No incluye a $\epsilon$).
+        \item Tipo 2: Independientes del contexto, $\phi = \rho = \epsilon$.
+        \item Tipo 3: Regulares, lineales a la derecha o izquierda. (completar)
+        \item Todos los tipos incluyen las restricciones de los tipos que le preceden.
+\end{itemize}
+
+\underline{Lineal a derecha e izquierda respectivamente:}\\
+$Nu \longrightarrow 0$\\
+$Nu \longrightarrow 1$\\
+$Nu \longrightarrow B$\\
+$B \longrightarrow 0$\\
+$B \longrightarrow 1$\\
+$B \longrightarrow B0$  -por izquierda\\
+$B \longrightarrow 0B$  -por derecha\\
+
+\textbf{Automatas finitos}
+Son un modelo util para construir analizadores lexicos.
+Son sistemas o componentes con un numero finito de estados,
+un estado recuerda la parte significativa de la historia del
+sistema.
+Sus entradas son palabras del lenguaje que representa.
+
+Un automata tiene tres tipos de estados:
+\begin{itemize}
+        \item Estado inicial, permite empezar la ejecucion
+        \item Estados finales, permite realizar la salida
+                de aceptacion
+        \item Estados intermedios
+\end{itemize}
+
+\textbf{Automatas deterministas}\\
+No puede estar en mas de un estado simultaneamente.
+Se denota con la quintupla $A = (\Sigma, Q, f, q_0, F)$
+donde:
+\begin{itemize}
+        \item $\Sigma$ es el alfabeto de simbolos de entrada
+        \item Q es el conjunto finito de estados
+        \item $q_0 \in Q$ es el estado inicial
+        \item f es la funcion de transicion, toma como argumentos
+                un estado de Q y un simbolo de entrada de $\Sigma$
+                y devuelve un estado de Q
+        \item $F \subseteq Q$ es el conjunto de los estados finales
+\end{itemize}
+
+Un AFD acepta o no una secuencia de simbolos de entrada segun si
+el automata se encuentra en un estado de aceptacion.
+Un AFD puede representarse tanto como una tabla de 
+transiciones como un grafo o diagrama.
+
+\textbf{Automatas no deterministas}\\
+Puede estar en varios estados al mismo tiempo
+
+\end{document}
+
+
+
+
+
+
+
+

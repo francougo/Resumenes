@@ -1,0 +1,391 @@
+\documentclass[14pt, letterpaper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+
+\title{Guia de resolucion de ejercicios de Algebra lineal}
+\date{Ultima modificacion: \today}
+
+\begin{document}
+
+\maketitle
+
+\textbf{Programacion lineal}\\
+Para resolver ejercicios de programacion lineal primero se deben
+plantear las inecuaciones segun los datos que presente el 
+ejercicio. Luego se plantea la funcion objetivo, que va a ser
+la funcion a maximizar o a minimizar y debe ser de la forma
+$ax + by = k$\\
+Donde a y b se obtienen del enunciado y las variables corresponden a las cantidades que necesitamos encontrar.
+Posteriormente se procede a graficar cada inecuacion en el plano
+coordenado, muchas veces es util plantear inecuaciones para 
+limitar los posibles resultados a los numeros positivos mediante
+$x \geq 0$ y $y \geq 0$ por ejemplo. Son muy frecuentes dichas 
+inecuaciones ya que no tiene sentido trabajar con cantidades 
+negativas por ejemplo.
+El siguiente paso es plantear la funcion objetivo con $k=0$.\\
+Si se intenta maximizar la funcion, se debe buscar un valor de k mayor a la zona factible (zona formada por la interseccion de
+las inecuaciones) e ir disminuyendolo hasta el primer punto en 
+donde la interseccion de la recta de la funcion objetivo y la 
+zona factible exista, puede resultar en un unico punto, caso en 
+el que esa es la unica solucion, o en una recta, caso en el que
+cualquier punto que pertenezca a ella es solucion al problema.\\
+Si se intenta minimizar la funcion objetivo, los pasos son los 
+mismos pero comenzando con un valor de k inferior a la zona 
+factible e incrementandolo.
+\clearpage
+
+\textbf{Matrices}\\
+Algunas propiedades utiles sobre las operaciones de matrices.\\
+Sean A, B y C tres matrices de m x n tal que los siguientes productos
+y sumas estan definidos y sean $\alpha$, $\beta$ dos escalares:\\
+\begin{itemize}
+        \item $A+0 = A$
+        \item $0A = 0$
+        \item $A+B = B+A$
+        \item $(A+B)+C = A+(B+C)$
+        \item $\alpha(A+B) = \alpha A + \alpha B$
+        \item $(\alpha + \beta)A = \alpha A + \beta A$
+        \item $1A = A$
+        \item $A(BC) = (AB)C$
+        \item $A(B+C) = AB + AC$ y $(A+B)C = AC + BC$
+        \item $AB \neq BA$
+        \item $(AB)^{-1} = B^{-1} A^{-1}$
+        \item $(AB)^T = B^T A^T$
+        \item $(A+B)^T = A^T + B^T$
+        \item $(A^T)^{-1} = (A^{-1})^T$
+\end{itemize}
+\clearpage
+
+\textbf{Determinantes}\\
+Algunas propiedades de los determinantes:\\
+\begin{itemize}
+        \item $det(A) = det(A^T)$
+        \item Si A es una matriz triangular, $det(A) = $ producto de los elementos
+                de la diagonal principal.
+        \item $det(AB) = det(A) det(B)$
+        \item Si A tiene una fila o columna de ceros $det(A) = 0$
+        \item $det(\alpha A) = \alpha ^n det(A)$ donde n es el orden de A.
+        \item Si se intercambian dos filas o columnas de A, $det(A)$ cambia su signo.
+        \item Si dos filas o columnas de A son proporcionales $det(A) = 0$
+        \item Si a una fila o columna se le suma un multiplo de otra fila o columna
+                $det(A)$ no cambia.
+        \item $det(A^{-1}) = 1/det(A)$
+\end{itemize}
+\clearpage
+
+\textbf{Vectores}\\
+Propiedades y formulas utiles de operaciones de vectores:\\
+
+\textbf{Angulos directores}\\
+$x = |\vec v| cos(\alpha)$\\
+$y = |\vec v| cos(\beta)$\\
+$z = |\vec v| cos(\beta)$\\
+\\
+$cos^2(\alpha) + cos^2(\beta) + cos^2(\gamma) = 1$\\
+Propiedades:\\
+\begin{itemize}
+        \item $|\alpha \vec v| = |\alpha||\vec v|$
+        \item $\vec v.\vec v = |\vec v|^2$
+\end{itemize}
+
+Angulo entre dos vectores\\
+$cos(\theta)= \frac{\vec{v} . \vec{u}}{|\vec{v}||\vec{u}|}$\\
+
+Paralelismo\\
+$\vec u \parallel \vec v \iff \vec u = k \vec v$\\
+
+Perpendiculares
+$\vec u \perp \vec v \iff \vec v \vec u = 0$\\
+
+Proyeccion y modulo de la proyeccion\\
+$Proy_{\vec v}\vec u = \frac{\vec u \vec v}{|\vec v|^2}\vec v$\\
+
+$|Proy_{\vec v}\vec u| = \frac{|\vec u \vec v|}{|\vec v|}$\\
+
+Distancia de un punto a una recta\\
+$dist((x_1;y_1);Recta) = \frac{|ax_1 + by_1 + c|}{\sqrt{a^2+b^2}}$\\
+
+Algunas propiedades del producto cruz y el triple producto escalar\\
+\begin{itemize}
+        \item $\vec u \times \vec v = -(\vec v \times \vec u)$
+        \item $(\alpha \vec u) \times \vec v = \vec u \times (\alpha \vec v) = \alpha (\vec u \times \vec v)$
+        \item $\vec u \times (\vec v + \vec w) = \vec u \times \vec v + \vec u \times \vec w$
+        \item $\vec u \parallel \vec v \Rightarrow \vec u \times \vec v = \vec 0$
+        \item $(\vec u \times \vec v) . \vec w = \vec u (\vec v \times \vec w)$
+        \item $\vec u (\vec u \times \vec v) = \vec v (\vec u \times \vec v) = 0$
+        \item $|\vec u \times \vec v| = |\vec u||\vec v|sen(\theta) =$ Area del paralelogramo.
+        \item $|\vec v(\vec u \times \vec w)| = 0 \Rightarrow \vec u, \vec v, \vec w$ coplanares.
+        \item El modulo del triple producto escalar es igual al volumen del paralelepipedo.
+\end{itemize}
+\clearpage
+
+\textbf{Planos}\\
+Propiedades:\\
+\begin{itemize}
+        \item $\pi_1 \parallel \pi_2 \iff \vec n_1 \parallel \vec n_2$
+        \item $\pi_1 \perp \pi_2 \iff \vec n_1 \perp \vec n_2$
+        \item El angulo entre dos planos es igual al angulo entre sus vectores normales.
+\end{itemize}
+
+Distancia de un punto a un plano\\
+$dist((x_0;y_0;z_0);\pi) = \frac{|ax_0 + by_0 + cz_0 + d|}{|\vec n|}$ donde a, b y c son la componentes de $\vec n$.\\
+
+Ecuacion simetrica de una recta\\
+$\frac{x - x_0}{u_1} = \frac{y - y_0}{u_2} = \frac{z - z_0}{u_3}$ donde las componentes sub cero corresponden a
+un punto en la recta y los denominadores son las componentes del vector director.\\
+
+\textit{Se pueden obtener facilmente los planos proyectantes de una recta tomando solo dos de los 
+tres terminos de su ecuacion simetrica, es decir, si se busca el plano proyectante en z, en otras palabras
+el plano perpendicular al plano xy, se deben tomar los terminos x e y para despejar de ellos la ecuacion del
+plano proyectante.}\\
+
+\textit{Para parametrizar una recta con ecuacion simetrica solo se debe igualar cada termino a el parametro "t"
+y despejar la x, y o z segun corresponda.}\\
+
+Angulo entre una recta y un plano\\
+$sen(\theta) = \frac{\vec n \vec u}{|\vec n||\vec u|}$\\
+
+Distancia entre dos rectas\\
+$dist = \frac{|\vec{P_1 P_2} (\vec u_1 \times \vec u_2)|}{|\vec u_1 \times \vec u_2|}$ donde $P_i$ son puntos pertenecientes a las rectas
+y $\vec u_i$ son los vectores directores.\\
+En caso de que las rectas se corten o sean paralelas su distancia es cero en el primer caso y en el segundo caso
+se puede obtener de manera sencilla tomando un punto cualquiera en una recta y utilizando la formula
+de distancia entre punto y recta.\\
+
+Trazas\\
+Para obtener las trazas de un plano, se debe plantear un sistema con la ecuacion 
+del plano y la ecuacion del plano que se quiera obtener la traza (estos pueden ser
+el xy, el xz y el yz) ya que las trazas de un plano son las intersecciones de este
+con los planos mencionados. Cabe destacar que un plano en $R^3$ puede tener 2 o 3 trazas.\\
+
+\clearpage
+
+\textbf{Espacios y subespacios vectoriales}\\
+Todo V tiene al menos dos subespacios vectoriales:
+$S = \{0\}$\\
+$S = \{V\}$\\
+Si posee otros, estos se llaman subespacios propios.\\
+
+Un subconjunto no vacio H de un V es un subespacio de V si:\\
+\begin{itemize}
+        \item $x, y \in H \Rightarrow x + y \in H$
+        \item $x \in H \Rightarrow \alpha x \in H \forall \alpha$ escalar.
+\end{itemize}
+
+\underline{Teoremas y propiedades}\\
+\begin{itemize}
+        \item Si V tiene dos subespacios vectoriales $H_1$ y $H_2$, $H_1 \cap H_2$ es
+                otro subespacio vectorial de V.
+        \item El conjunto solucion de cualquier sistema de ecuaciones homogeneo es SEV de $\mathbb{R}^n$.
+\end{itemize}
+
+\underline{Conjunto generador}\\
+$\vec v_1 , \vec v_2 , \vec v_n$ son el conjunto generador (gen()) de un V si y solo si
+pertenecen a dicho V y todo $\vec v \in V$ puede escribirse como combinacion lineal de
+dichos vectores.\\
+
+\underline{Dependencia e independencia lineal}\\*
+$\vec v_1 , \vec v_2 , \vec v_n \in V$ son linealmente dependientes (LD) si el vector
+nulo se puede escribir como combinacion lineal de los n vectores donde al menos un escalar no es nulo.\\*
+\begin{itemize}
+        \item $\vec v , \vec u$ son LD $\iff \vec v = k \vec u$
+\end{itemize}
+
+\textit{Se puede plantear un sistema de ecuaciones para determinar si un conjunto de vectores es 
+linealmente independiente de la siguiente forma:\\*}
+$\left(\begin{array}{ccc}
+        u_1 & v_1 & w_1 \\
+        u_2 & v_2 & w_2 \\
+        u_3 & v_3 & w_3
+\end{array}|
+\begin{array}{c}
+        0 \\
+        0 \\
+        0
+\end{array}\right)\\*
+$        
+        
+\begin{itemize}
+        \item SCI $\Rightarrow$ LD
+        \item SCD $\Rightarrow$ LI
+\end{itemize}
+
+\textit{Cabe destacar que no puede resultar en un sistema incompatible ya que es homogeneo}\\*
+
+\textit{Mas teoremas y propiedades}\\*
+\begin{itemize}
+        \item Tres vectores en $\mathbb{R}^3$ son LD $\iff$ son coplanares.
+        \item Si el numero de vectores es mayor al numero de componentes de cada
+                vector entonces son LD.
+        \item Cualquier conjunto de n vectores LI en $\mathbb{R}^n$ genera a $\mathbb{R}^n$.
+\end{itemize}
+
+\textbf{Bases}\\*
+Un conjunto finito de vectores es una base para V si:\\*
+\begin{itemize}
+        \item Los n vectores son LI
+        \item Los n vectores generan a V
+\end{itemize}
+
+\textit{Para encontrar bases de un subespacio se busca el vector generico del mismo, es decir
+un vector en el que se exprese la relacion (si la hay) entre sus componentes y luego se 
+descompone dicho vector como combinacion lineal de vectores. El resultado debe contener
+tantos vectores como variables distintas tenga el vector generico y este es la base del SEV.}\\
+
+Un vector de coordenadas esta formado por los escalares por los que se debe multiplicar a la base
+de un SEV para obtener el vector representado, por lo tanto debe ser empleado solo para bases ordenadas.\\*
+
+\textit{Espacio vectorial con producto interno}\\*
+\begin{itemize}
+        \item Norma es equivalente a modulo y ortogonal a perpendicular.
+        \item Un conjunto es ortogonal si cada vector es ortogonal con los demas
+                vectores del conjunto.
+        \item Un conjunto es ortonormal si es ortogonl y ademas, para todo $\vec v \in \mathbb{R}^n :
+                \vec v . \vec v = 1$ es decir posee norma 1.
+        \item Una base puede ser tanto ortogonal como ortonormal.
+\end{itemize}
+
+\textit{Para cambiar un vector a otra base se debe expresar dicho vector como combinacion
+lineal de la base objetivo y resolver el sistema de ecuaciones.}\\*
+\clearpage
+
+\textbf{Transformaciones lineales}\\*
+Una funcion que asigna a cada vector $\in V$ un unico vector $T \vec v \in W$ y que
+para cada $\vec u , \vec v \in V ; \alpha \in \mathbb{R}$:\\*
+\begin{itemize}
+        \item $T(\vec u + \vec v) = T \vec u + T \vec v$
+        \item $T(\alpha \vec v) = \alpha T \vec v$
+\end{itemize}
+
+\textit{Para verificar que una transformacion es lineal a partir de su forma analitica, se 
+deben plantear ambas condiciones anteriores con el vector generico y comprobar que se
+satisfacen.}\\*
+
+Propiedades\\*
+\begin{itemize}
+        \item $T(\vec 0) = \vec 0$
+        \item $T(\vec u - \vec v) = T \vec u - T \vec v$
+        \item $T:\mathbb{R}^n \rightarrow \mathbb{R}^m$ es TL $\iff \exists A_{m \times n} / T \vec v = A \vec v
+                \forall \vec v \in \mathbb{R}^n$
+        \item $T(\alpha_1 \vec v_1 + ... + \alpha_n \vec v_n) = \alpha_1 T \vec v_1 + ... + \alpha_n T \vec v_n$
+                es decir que la transformacion de una combinacion lineal es igual a la combinacion lineal de
+                los transformados.
+\end{itemize}
+
+\textit{Por la ultima propiedad presentada se puede calcular el efecto de una transformacion lineal
+sobre cualquier vector en base A si se conocen los transformados de los vectores de la base A, ya que
+todo vector en base A se puede escribir como combinacion lineal de la base A.}\\*
+
+\textit{Para obtener la matriz asociada a una transformacion lineal basta con colocar como columnas
+a los transformados de la base estandar. Pero si se pide hayar la matriz de un transformado $M_{BC}(T)$\\*
+donde B es una base en el conjunto de partida y C una en el conjunto de llegada, se deben transformar
+en primer lugar los vectores de la base B segun la TL y luego convertir los resultantes a base C.}\\*
+
+\underline{Nucleo e imagen de una transformacion}\\*
+$nu(T) = \{\vec v \in V: T \vec v = 0\}$\\*
+$im(T) = \{\vec w \in W: \vec w = T \vec v$ para algun $\vec v \in V\}$\\*
+
+\textit{Tanto el nucleo como la imagen de una TL son espacios vectoriales y se obtienen de
+resolver un sistema de ecuaciones igualando el vector generico $T(\vec v)$ a el vector
+generico de $\mathbb{R}^n$ o al vector nulo, respectivamente. En el caso de la imagen
+se busca la condicion para que el sistema sea compatible y en el nucleo solo se resuelve
+ya que es un sistema homogeneo.}\\*
+
+El rango y la nulidad son las dimensiones de la imagen y el nucleo respectivamente.\\*
+\clearpage
+
+\textbf{Eigenvalores y eigenvectores}\\*
+$\lambda$ es un valor caracteristico de una matriz asociada a una TL $A \iff det(A- \lambda I) = 0$\\*
+
+Los eigenvectores se obtienen de resolver el sistema de ecuaciones $(A- \lambda I)\vec V = \vec 0$\\*
+Donde V es el vector generico de $\mathbb{R}^n$. La solucion al sistema sera un SEV asociado al 
+eigenvalor correspondiente, la base de este subespacio esta conformada por los eigenvectores.
+
+\underline{Teoremas y propiedades}\\*
+\begin{itemize}
+        \item Vectores caracteristicos correspondientes a eigenvalores distintos son LI
+        \item Los eigen valores de una M triangular son los elementos de su diagonal principal
+        \item Multiplicidad Geometrica $= dim(E_{\lambda})$
+        \item $A_{n \times n}$ tiene n vectores LI $\iff \forall \lambda_i : MG(\lambda_i) = MA(\lambda_i)$
+\end{itemize}
+
+Dos matrices M y A son semejantes si $M = C^{-1}AC$.\\*
+
+\underline{Propiedades}\\*
+\begin{itemize}
+        \item Si dos matrices son semejantes, tienen el mismo polinomio caracteristicos, los mismos eigenvalores
+                y la misma traza
+        \item Se puede cambiar de base una TL buscando una matriz semejante siendo la matriz C la matriz que contiene
+                a los vectores de la base objetivo
+        \item Si A es semejante a B y A es diagonal, entonces B es diagonalizable
+        \item $M_{n \times n}$ es diagonalizable si y solo si tiene n vectores caracteristicos LI
+        \item Sea A diagonalizable y D una matriz similar diagonal:\\*
+                $A^n = CD^n C^{-1}$\\*
+                Donde las columnas de C son los eigenvectores de A ordenados segun la diagonal principal de D.
+\end{itemize}
+\clearpage
+
+\textbf{Conicas}\\*
+\underline{Ecuacion General de segundo grado (incompleta)}\\*
+$Ax^2 + Cy^2 + Dx + Ey + F = 0$\\*
+\underline{Circunferencia}\\*
+$(x-k)^2 + (y-h)^2 = r^2$\\*
+Donde $(k;h)$ es el centro y r es el radio.\\*
+
+Condiciones\\*
+\begin{itemize}
+        \item $A = C \neq 0$
+        \item $M > 0$ donde $M = \frac{-4AF+D^2+E^2}{4A^2}$
+\end{itemize}
+
+\underline{Parabola}\\*
+El eje focal de la parabola siempre es paralelo al eje correspondiente al termino lineal\\*
+$(x-h)^2 = 2p(y-k)$\\*
+Donde $(h;k)$ es el vertice y p es la distancia del foco a la directriz.\\*
+
+Condiciones\\*
+\begin{itemize}
+        \item $C = 0; A \neq 0; E \neq 0$
+        \item o $C \neq 0; A = 0; D \neq 0$
+\end{itemize}
+
+\underline{Elipse}\\*
+$\frac{(x-h)^2}{a^2} + \frac{(y-h)^2}{b^2} = 1$\\*
+Donde $(h;k)$ es el centro, a es la distancia entre un foco y un vertice principal, b es la
+distancia entre el centro y un vertice principal y c es la distancia entre el centro y un foco.\\*
+\begin{itemize}
+        \item $a^2 = b^2 + c^2$
+        \item Lado recto $= \frac{2b^2}{a}$
+        \item Exentricidad $= \frac{c}{a}$
+        \item Condiciones: el signo de A, C y M es igual, siendo M el termino producido al completar
+                cuadrados.
+\end{itemize}
+
+\underline{Hiperbola}\\*
+$\frac{(x-h)^2}{a^2} - \frac{(y-k)^2}{b^2} = 1$\\*
+Cualquier termino puede ser negativo, pero solo debe ser uno y $a^2$ siempre divide al positivo.
+Si x es positivo el eje focal es horizontal, si y es positivo el eje focal es vertical.\\*
+a es la distancia entre el centro y un vertice, b entre el vertice y la asintota, perpendicular al EF
+y c entre el centro y un foco. Siempre se cumple que $c^2 = a^2 + b^2$\\*
+
+Ecuaciones asintotas\\(
+EF horizontal\\*
+$y-k = +- \frac{b}{a}(x-h)$\\*
+EF vertical es igual pero la pendiente es $\frac{a}{b}$.\\*
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
