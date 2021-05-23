@@ -80,7 +80,7 @@ Union de todas las potencias de un lenguaje.\\
 $L^* = \bigcup_{i=0} ^ \infty L^i = L^0 \cup L^1 \cup L^i \cup ... \cup L^ \infty$\\
 
 \textbf{Tipos de Gramaticas}\\
-Una gramatica se define como $G = {N, T, S, P}$\\
+Una gramatica se define como $G = \{N, T, S, P\}$\\
 donde N es el conjunto de simbolos no terminales, 
 T el de los terminales, $S \in N$ el simbolo inicial (el mas general),
 y P son las reglas de asignacion para formar palabras de la forma
@@ -119,7 +119,7 @@ Un automata tiene tres tipos de estados:
 
 \textbf{Automatas deterministas}\\
 No puede estar en mas de un estado simultaneamente.
-Se denota con la quintupla $A = (\Sigma, Q, f, q_0, F)$
+Se denota con la quintupla $A = \{\Sigma, Q, f, q_0, F\}$
 donde:
 \begin{itemize}
         \item $\Sigma$ es el alfabeto de simbolos de entrada
@@ -130,6 +130,15 @@ donde:
                 y devuelve un estado de Q
         \item $F \subseteq Q$ es el conjunto de los estados finales
 \end{itemize}
+La funcion de transicion "f" es una funcion binaria que 
+toma un estado \[\in Q\] y un simbolo \[\in \Sigma\] y
+produce un nuevo estado:\\
+\[f(q_i,a) = q_j \]\\*
+
+La funcion extendida \[\hat f\] toma un estado y una cadena formada por simbolos del alfabeto del automata y produce un estado. Esta definida de la siguiente forma:\\*
+\[\hat f (q, \epsilon) = q\]\\
+\[\hat f (q, w) = f (\hat f (q, x), a)\]\\*
+Donde a es el ultimo elemento de w y x el resto del cuerpo de w.\\*
 
 Un AFD acepta o no una secuencia de simbolos de entrada segun si
 el automata se encuentra en un estado de aceptacion.
