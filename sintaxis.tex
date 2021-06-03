@@ -139,6 +139,23 @@ transiciones como un grafo o diagrama.
 \textbf{Automatas no deterministas}\\
 Puede estar en varios estados al mismo tiempo
 
+\textbf{Automatas finitos con transiciones \(\epsilon\)}\\*
+Permite transiciones para la cadena vacia.\\*
+Equivalencia con un AFD:\\*
+\( AFN-\epsilon\) \(E=(Q_E, \Sigma, f_E, q_0, F_E)\), \(AFD \) \(D=(Q_D, \Sigma, f_D, q_D, F_D)\)\\*
+tal que  \(L(D)=L(E)\)\\*
+
+\begin{itemize}
+        \item \(Q_D es el conjunto de subconjuntos de Q_E\). Aunque solo los subconjuntos cerrados en 
+\(\epsilon\) seran accesibles por el AFD.
+        \item \(q_D=CLAUSURA_{\epsilon}(q_0)\)
+        \item \(F_D\) incluye todos los conjuntos de estados de E que incluyen al menos
+                un estado de aceptacion de E. 
+        \item Para cada subconjunto de \(Q_D\) y para cada simbolo de entrada $a$ en $\Sigma$,\\*
+                Sea $S = \{p_1, p_2, ..., p_k\}$\\*
+                y sea $\bigcup_{i=1}^k f_E(p_i, a) = {r_1, r_2, ..., r_m}$\\*
+                $f_D(S, a)=\bigcup_{j=1}^m CLAUSURA_{\epsilon}(r_j)$
+\end{itemize}
 \end{document}
 
 
