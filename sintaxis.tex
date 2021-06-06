@@ -146,7 +146,15 @@ Un AFD puede representarse tanto como una tabla de
 transiciones como un grafo o diagrama.
 
 \textbf{Automatas no deterministas}\\
-Puede estar en varios estados al mismo tiempo
+Puede estar en varios estados al mismo tiempo.\\*
+Se definen de forma similar a los AFD pero su funcion de transicion, que toma un estado y un simbolo
+de entrada, produce un conjunto de estados como salida en vez de un unico estado como en los AFD. 
+Este conjunto puede ser vacio.\\*
+Por lo tanto tambien posee una funcion de transicion extendida diferente: dicha funcion producira
+tambien un conjunto de estados que se obtiene de la siguiente forma:\\*
+Sea $\omega = xa$\\*
+y sea $\hat f_N(q, x)=\{p_1, p_2, ..., p_k\}$\\*
+\[\bigcup_{i=1}^k f_N(p_i, a)=\{r_1, r_2, ..., r_m\} = \hat f_N(q, \omega)\]
 
 \textbf{Automatas finitos con transiciones \(\epsilon\)}\\*
 Permite transiciones para la cadena vacia.\\*
@@ -165,6 +173,26 @@ tal que  \(L(D)=L(E)\)\\*
                 y sea $\bigcup_{i=1}^k f_E(p_i, a) = {r_1, r_2, ..., r_m}$\\*
                 $f_D(S, a)=\bigcup_{j=1}^m CLAUSURA_{\epsilon}(r_j)$
 \end{itemize}
+
+\textbf{Expresiones regulares}\\*
+\begin{itemize}
+        \item $\epsilon$ y $\emptyset$ son expresiones regulares que representan a los lenguajes $\{\epsilon\}$ y $\emptyset$
+respectivamente.
+        \item Si $a$ es un simbolo de entrada, $a$ es una expresion regular que representa al lenguaje $\{a\}$
+        \item Una variable \textit{L} representa a cualquier lenguaje
+        \item Si E y F son expresiones regulares $E+F$ es una expresion regular y representa a la union $L(E) \cup L(F)$
+        \item Si E y F son regex EF es una regex y representa a la concatenacion de lenguajes $L(E).L(F)$
+        \item Si E es una regex $E^*$ es una regex que representa a la clausura del lenguaje $(L(E))^*$
+        \item Si E es una regex $(E)$ es la misma regex, representa al mismo lenguaje
+\end{itemize}
+La precedencia de operadores de regex es la siguiente:\\*
+Clausura $*$, Concatenacion $.$, Union $+$. Se pueden utilizar parentesis para utilizar otra precedencia.\\*
+
+\textit{Teoria: Los AFD, AFN, $AFN-\epsilon$ y las expresiones regulares representan a los mismos lenguajes.}\\*
+
+Conversion de AFD a regex:\\*
+La regex es la union de todas las $R_{1j}^n$ con $n \in [1;k]$ y suponiendo que el estado inicial se etiquete con 1
+tal que j sea un estado final.\\*
 \end{document}
 
 
