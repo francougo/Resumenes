@@ -156,6 +156,29 @@ tal que  \(L(D)=L(E)\)\\*
                 y sea $\bigcup_{i=1}^k f_E(p_i, a) = {r_1, r_2, ..., r_m}$\\*
                 $f_D(S, a)=\bigcup_{j=1}^m CLAUSURA_{\epsilon}(r_j)$
 \end{itemize}
+
+\textbf{Gramaticas libres de contexto}\\*
+Todas las GIC se conforman por:\\*
+\begin{itemize}
+        \item Un conjunto de simbolos terminales T
+        \item Un conjunto de variables o simbolos no terminales N
+        \item Un conjunto de reglas de produccion P que definen a cada variable como una composicion de simbolos terminales
+                y variables
+        \item Un simbolo $S \in N$ que representa a todo el lenguaje
+\end{itemize}
+\textbf{Derivaciones}\\*
+Las derivaciones consisten en, a partir de la variable que representa a todo el lenguaje de una gramatica S,
+sustituirla por alguna de sus producciones y al conjunto de variables y simbolos terminales resultante realizarle
+la misma accion (para cada variable) hasta llegar a un conjunto de simbolos terminales, en particular interesa
+llegar a la cadena que se busca derivar ya que es una forma de demostrar que dicha cadena pertenece al lenguaje.\\*
+
+\textbf{Derivaciones a derecha e izquierda}\\*
+Con el fin de ordenar los pasos de una derivacion se puede derivar por ejemplo "a derecha" lo que significa que en 
+cada paso se sustituye la variable ubicada mas a la derecha, la derivacion por izquierda es analoga.\\*
+
+\textbf{Lenguaje de una GIC}\\*
+El lenguaje de una gramatica libre de contexto se define como el conjunto de cadenas que se pueden obtener como una derivacion
+partiendo de la variable inicial de la gramatica.\\*
 \end{document}
 
 
